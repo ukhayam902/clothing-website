@@ -52,9 +52,14 @@ function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; 
     const el = ref.current
     if (!el) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setVisible(true); return }
+    if (typeof IntersectionObserver === 'undefined') { setVisible(true); return }
+    // Threshold 0 + a positive bottom margin: tall sections (e.g. Best
+    // Sellers on a phone, 8 stacked cards) can never reach 12% visibility
+    // in a small viewport, so they stayed invisible forever. Any visibility
+    // now reveals the section, slightly before it enters the viewport.
     const obs = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) { setVisible(true); obs.disconnect() }
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    }, { threshold: 0, rootMargin: '0px 0px 80px 0px' })
     obs.observe(el)
     return () => obs.disconnect()
   }, [])
