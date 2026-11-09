@@ -1,7 +1,7 @@
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { ArrowRight, Check, CheckCircle2, ChevronDown, Minus, Package, Plus, Search, ShoppingCart, Truck, ShieldCheck, RotateCcw } from 'lucide-react'
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react'
-import { FAQS, HERO_IMAGES, formatPKR, type Product } from '../data/catalog'
+import { FAQS, HERO_IMAGES, PAYMENT_ACCOUNT_TITLE, PAYMENT_METHODS, WHATSAPP_DISPLAY, WHATSAPP_NUMBER, WHATSAPP_URL, formatPKR, type PaymentMethod, type Product } from '../data/catalog'
 import { categoryNameFor, useShop } from '../store/shop'
 import { demoMode } from '../lib/supabase'
 
@@ -27,7 +27,7 @@ export function ProductCard({ p }: { p: Product }) {
   return (
     <article className="border border-neutral-200 rounded-3xl overflow-hidden bg-white flex flex-col shadow-sm hover:shadow-md transition-shadow">
       <div className="relative bg-[#F7F7F7]">
-        <Link to={`/product/${p.slug}`} aria-label={p.name}><img src={p.image} alt={`${p.name} — representative sample photo`} loading="lazy" className="w-full aspect-square object-contain p-6 transition-transform duration-300 hover:scale-105" /></Link>
+        <Link to={`/product/${p.slug}`} aria-label={p.name}><img src={p.image} alt={`${p.name} — representative sample photo`} loading="lazy" className="w-full aspect-[3/4] object-cover object-top transition-transform duration-300 hover:scale-105" /></Link>
         <div className="absolute top-3 left-3 flex gap-1.5 flex-wrap">{p.bestseller && <span className="text-[11px] font-semibold bg-black text-white px-2.5 py-1 rounded-full">Best Seller</span>}{p.isNew && <span className="text-[11px] font-semibold bg-white border border-neutral-200 px-2.5 py-1 rounded-full">New</span>}</div>
       </div>
       <div className="p-5 flex flex-col gap-2.5 flex-1">
@@ -102,12 +102,12 @@ export function Home() {
           </div>
           <div>
             <div className="bg-[#F7F7F7] border border-neutral-200 rounded-3xl overflow-hidden">
-              <img src={heroImg} alt={heroAlt} className="w-full aspect-[4/5] sm:aspect-[5/5] object-cover" />
+              <img src={heroImg} alt={heroAlt} className="w-full aspect-[3/4] object-cover object-top" />
             </div>
             <div className="flex gap-3 mt-3" role="group" aria-label="Change hero look">
               {HERO_LOOKS.map(l => (
                 <button key={l.key} type="button" aria-label={l.label} aria-pressed={heroLook === l.key} onClick={() => setHeroLook(l.key)} className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 shrink-0 ${heroLook === l.key ? 'border-black' : 'border-neutral-200 hover:border-neutral-400'}`}>
-                  <img src={HERO_IMAGES[l.key]} alt="" className="w-full h-full object-cover" />
+                  <img src={HERO_IMAGES[l.key]} alt="" className="w-full h-full object-cover object-top" />
                 </button>
               ))}
             </div>
@@ -121,18 +121,18 @@ export function Home() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {categories.map(c => (
             <Link key={c.id} to={`/shop?category=${c.id}`} className="group text-center">
-              <span className="block w-full aspect-square rounded-full overflow-hidden bg-[#F7F7F7] border border-neutral-200 group-hover:border-black transition-colors"><img src={c.image} alt={`${c.name} — representative sample photo`} loading="lazy" className="w-full h-full object-cover" /></span>
+              <span className="block w-full aspect-square rounded-full overflow-hidden bg-[#F7F7F7] border border-neutral-200 group-hover:border-black transition-colors"><img src={c.image} alt={`${c.name} — representative sample photo`} loading="lazy" className="w-full h-full object-cover object-top" /></span>
               <span className="block font-semibold text-sm mt-3">{c.name}</span>
               <span className="block text-xs text-neutral-500 mt-0.5">{products.filter(p => p.category === c.id).length} styles</span>
             </Link>
           ))}
           <Link to="/shop?sort=popular" className="group text-center">
-            <span className="block w-full aspect-square rounded-full overflow-hidden bg-[#F7F7F7] border border-neutral-200 group-hover:border-black transition-colors"><img src="/images/category-best.webp" alt="Best sellers — representative sample photo" loading="lazy" className="w-full h-full object-cover" /></span>
+            <span className="block w-full aspect-square rounded-full overflow-hidden bg-[#F7F7F7] border border-neutral-200 group-hover:border-black transition-colors"><img src="/images/category-best.webp" alt="Best sellers — representative sample photo" loading="lazy" className="w-full h-full object-cover object-top" /></span>
             <span className="block font-semibold text-sm mt-3">Best Sellers</span>
             <span className="block text-xs text-neutral-500 mt-0.5">Top picks</span>
           </Link>
           <Link to="/shop" className="group text-center">
-            <span className="block w-full aspect-square rounded-full overflow-hidden bg-[#F7F7F7] border border-neutral-200 group-hover:border-black transition-colors"><img src="/images/category-all.webp" alt="Shop all — representative sample photo" loading="lazy" className="w-full h-full object-cover" /></span>
+            <span className="block w-full aspect-square rounded-full overflow-hidden bg-[#F7F7F7] border border-neutral-200 group-hover:border-black transition-colors"><img src="/images/category-all.webp" alt="Shop all — representative sample photo" loading="lazy" className="w-full h-full object-cover object-top" /></span>
             <span className="block font-semibold text-sm mt-3">Shop All</span>
             <span className="block text-xs text-neutral-500 mt-0.5">{products.length} designs</span>
           </Link>
@@ -143,7 +143,7 @@ export function Home() {
 
       <Reveal><section className="max-w-7xl mx-auto px-4 py-10 sm:py-12">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="bg-[#F7F7F7] border border-neutral-200 rounded-3xl overflow-hidden"><img src={HERO_IMAGES['style-split']} alt="Store owner wearing a sand beige linen shirt with white trousers" loading="lazy" className="w-full aspect-[4/5] object-cover" /></div>
+          <div className="bg-[#F7F7F7] border border-neutral-200 rounded-3xl overflow-hidden"><img src={HERO_IMAGES['style-split']} alt="Store owner wearing a sand beige linen shirt with white trousers" loading="lazy" className="w-full aspect-[3/4] object-cover object-top" /></div>
           <div>
             <p className="text-xs font-semibold tracking-[0.22em] text-neutral-500">THE LOOK</p>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mt-3">Style That Speaks</h2>
@@ -166,7 +166,7 @@ export function Home() {
           <div className="bg-[#1d1d1d] rounded-2xl p-5"><h3 className="font-bold">Premium Cotton</h3><p className="text-neutral-300 text-sm mt-1.5 leading-relaxed">Soft, breathable cotton-rich fabric that feels good on the skin and keeps its shape wash after wash.</p></div>
           <div className="bg-[#1d1d1d] rounded-2xl p-5"><h3 className="font-bold">Stitching That Lasts</h3><p className="text-neutral-300 text-sm mt-1.5 leading-relaxed">Reinforced seams and tidy finishing, checked piece by piece before anything is listed in the shop.</p></div>
           <div className="bg-[#1d1d1d] rounded-2xl p-5"><h3 className="font-bold">True-to-Size Fit</h3><p className="text-neutral-300 text-sm mt-1.5 leading-relaxed">Honest sizing from S to XXL with a clear size guide, so what you order is what fits when it arrives.</p></div>
-          <div className="bg-[#1d1d1d] rounded-2xl p-5"><h3 className="font-bold">Cash on Delivery</h3><p className="text-neutral-300 text-sm mt-1.5 leading-relaxed">Order first, pay at your door. Cash on Delivery is shown at checkout as a sample payment policy, to be confirmed by the owner.</p></div>
+          <div className="bg-[#1d1d1d] rounded-2xl p-5"><h3 className="font-bold">Cash on Delivery, Easypaisa &amp; JazzCash</h3><p className="text-neutral-300 text-sm mt-1.5 leading-relaxed">Pay at your door with Cash on Delivery, or pay in advance with Easypaisa or JazzCash — choose your payment method at checkout.</p></div>
         </div>
       </div></section></Reveal>
 
@@ -257,7 +257,7 @@ export function ProductPage() {
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
         <div>
           <div className="relative bg-[#F7F7F7] border border-neutral-200 rounded-3xl overflow-hidden">
-            <img src={p.image} alt={`${p.name} — representative sample photo`} className="w-full aspect-square object-contain p-8 sm:p-12" />
+            <img src={p.image} alt={`${p.name} — representative sample photo`} className="w-full aspect-[3/4] object-cover object-top" />
             <div className="absolute top-4 left-4 flex gap-1.5 flex-wrap">{p.bestseller && <span className="text-[11px] font-semibold bg-black text-white px-2.5 py-1 rounded-full">Best Seller</span>}{p.isNew && <span className="text-[11px] font-semibold bg-white border border-neutral-200 px-2.5 py-1 rounded-full">New</span>}</div>
           </div>
           <p className="text-xs text-neutral-500 mt-3 text-center">Representative image — not an exact photo of this model.</p>
@@ -295,6 +295,9 @@ export function ProductPage() {
 export function CheckoutPage() {
   const { cart, placeOrder, placeOrderLive, shippingFor, user } = useShop()
   const [done, setDone] = useState<string | null>(null)
+  const [donePayment, setDonePayment] = useState<PaymentMethod | null>(null)
+  const [payment, setPayment] = useState<PaymentMethod>('Cash on Delivery')
+  const [txnId, setTxnId] = useState('')
   const [orderError, setOrderError] = useState<string | null>(null); const [placing, setPlacing] = useState(false)
   const subtotal = cart.reduce((s, i) => s + i.product.price * i.qty, 0)
   const shipping = shippingFor(subtotal); const total = subtotal + shipping
@@ -303,19 +306,20 @@ export function CheckoutPage() {
     try {
       const fd = new FormData(e.currentTarget)
       if (demoMode) {
-        const order = placeOrder({ items: cart, total, name: String(fd.get('name')), city: String(fd.get('city')), phone: String(fd.get('phone')), address: String(fd.get('address')), payment: 'Cash on Delivery' })
-        setDone(order.id); return
+        const order = placeOrder({ items: cart, total, name: String(fd.get('name')), city: String(fd.get('city')), phone: String(fd.get('phone')), address: String(fd.get('address')), payment })
+        setDone(order.id); setDonePayment(payment); return
       }
       const res = await placeOrderLive({
         name: String(fd.get('name')), city: String(fd.get('city')), phone: String(fd.get('phone')),
         email: String(fd.get('email')), country: String(fd.get('country')), address: String(fd.get('address')),
         postalCode: String(fd.get('postal') || ''), notes: String(fd.get('notes') || ''),
+        payment, txnId: payment === 'Cash on Delivery' ? '' : txnId.trim(),
       })
       if (res.error || !res.order) { setOrderError(res.error || 'Order could not be created. Your cart was kept.'); return }
-      setDone(res.order.id)
+      setDone(res.order.id); setDonePayment(payment)
     } finally { setPlacing(false) }
   }
-  if (done) return <div className="max-w-2xl mx-auto px-4 py-16 text-center"><div className={`${CARD} py-12 px-6`}><CheckCircle2 size={48} className="mx-auto text-green-700" /><h1 className="text-3xl font-extrabold tracking-tight mt-4">Order placed — {done}</h1><p className="text-neutral-600 mt-3 leading-relaxed">Thank you! {demoMode ? 'In demo mode this order is saved in this browser only.' : 'Your order is saved and the shop can see it in /admin → Orders.'} Pay on delivery — Cash on Delivery.</p><div className="flex flex-wrap justify-center gap-3 mt-6"><Link to="/track" className={`${BTN_BLACK} px-7 py-3 text-sm`}>Track Order</Link><Link to="/shop" className={`${BTN_OUTLINE} px-7 py-3 text-sm`}>Continue shopping</Link></div></div></div>
+  if (done) return <div className="max-w-2xl mx-auto px-4 py-16 text-center"><div className={`${CARD} py-12 px-6`}><CheckCircle2 size={48} className="mx-auto text-green-700" /><h1 className="text-3xl font-extrabold tracking-tight mt-4">Order placed — {done}</h1><p className="text-neutral-600 mt-3 leading-relaxed">Thank you! {demoMode ? 'In demo mode this order is saved in this browser only.' : 'Your order is saved and the shop can see it in /admin → Orders.'} {donePayment === 'Cash on Delivery' || !donePayment ? 'Pay on delivery — Cash on Delivery.' : `You chose ${donePayment} — please pay ${formatPKR(total)} to ${WHATSAPP_NUMBER} (${PAYMENT_ACCOUNT_TITLE}) and WhatsApp the transaction ID/screenshot to ${WHATSAPP_DISPLAY} for verification.`}</p><div className="flex flex-wrap justify-center gap-3 mt-6"><Link to="/track" className={`${BTN_BLACK} px-7 py-3 text-sm`}>Track Order</Link><Link to="/shop" className={`${BTN_OUTLINE} px-7 py-3 text-sm`}>Continue shopping</Link></div></div></div>
   if (!cart.length) return <div className="max-w-3xl mx-auto px-4 py-16 text-center"><div className={`${CARD} py-12 px-6`}><h1 className="text-3xl font-extrabold tracking-tight">Checkout</h1><p className="mt-2 text-neutral-600">Your cart is empty.</p><Link to="/shop" className="underline mt-4 inline-block font-medium">Back to shop</Link></div></div>
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 sm:py-10"><h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Checkout</h1>
@@ -328,8 +332,16 @@ export function CheckoutPage() {
           <div className="sm:col-span-2"><label className="text-sm font-semibold block mb-1.5" htmlFor="notes">Order notes</label><textarea id="notes" name="notes" className={INPUT} rows={2} /></div>
         </div></div></div>
         <fieldset className={CARD}><div className="p-5 sm:p-6"><legend className="font-bold text-lg px-1">Payment method</legend>
-          <div className="grid gap-2.5 mt-1"><label className="flex items-center gap-3 border rounded-2xl px-4 py-3.5 text-sm font-medium border-black bg-[#F7F7F7]"><input type="radio" name="payment" checked readOnly className="accent-black w-4 h-4" />Cash on Delivery<span className="ml-auto text-xs font-semibold bg-green-100 text-green-800 rounded-full px-2.5 py-1">Pay at your door</span></label></div>
-          <p className="text-sm text-neutral-600 mt-4 leading-relaxed">Sample payment policy: Cash on Delivery only — you pay in cash when your order arrives at your door, so there is no need to pay anything in advance. The final payment options will be confirmed by the owner.</p>
+          <div className="grid gap-2.5 mt-1">{PAYMENT_METHODS.map(m => (
+            <label key={m} className={`flex items-center gap-3 border rounded-2xl px-4 py-3.5 text-sm font-medium cursor-pointer ${payment === m ? 'border-black bg-[#F7F7F7]' : 'border-neutral-200'}`}><input type="radio" name="payment" checked={payment === m} onChange={() => setPayment(m)} className="accent-black w-4 h-4" />{m}<span className="ml-auto text-xs font-semibold bg-green-100 text-green-800 rounded-full px-2.5 py-1">{m === 'Cash on Delivery' ? 'Pay at your door' : 'Pay in advance'}</span></label>
+          ))}</div>
+          {payment !== 'Cash on Delivery' && <div className="mt-4 bg-[#F7F7F7] border border-neutral-200 rounded-2xl p-4">
+            <p className="text-sm leading-relaxed"><strong>{payment}: {WHATSAPP_NUMBER}</strong> — Account title: {PAYMENT_ACCOUNT_TITLE}. Send the payment, then enter your transaction ID below and share the screenshot on WhatsApp {WHATSAPP_DISPLAY} for verification.</p>
+            <label className="text-sm font-semibold block mt-3 mb-1.5" htmlFor="txnId">Transaction ID *</label>
+            <input id="txnId" name="txnId" required value={txnId} onChange={e => setTxnId(e.target.value)} placeholder="e.g. 1234567890" className={INPUT} />
+            <p className="text-sm mt-3">Send the screenshot on WhatsApp: <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="underline font-medium">{WHATSAPP_DISPLAY}</a></p>
+          </div>}
+          <p className="text-sm text-neutral-600 mt-4 leading-relaxed">Cash on Delivery — pay in cash when your order arrives at your door, no advance payment needed. Easypaisa and JazzCash are paid in advance: send the payment to {WHATSAPP_NUMBER} ({PAYMENT_ACCOUNT_TITLE}), enter your transaction ID above, and share the screenshot on WhatsApp {WHATSAPP_DISPLAY} for verification.</p>
         </div></fieldset>
         <button disabled={placing} className={`${BTN_BLACK} py-4 text-sm sm:text-base`}>{placing ? 'Placing order…' : `Place Order — ${formatPKR(total)}`}</button>
       </div><aside className={`${CARD} p-6 lg:sticky lg:top-24`}><h2 className="font-bold text-lg">Order summary</h2>{cart.map(i => <p key={`${i.product.id}-${i.size}`} className="flex justify-between gap-3 text-sm py-1.5"><span className="min-w-0">{i.product.name} ({i.size}) × {i.qty}</span><span className="shrink-0">{formatPKR(i.product.price * i.qty)}</span></p>)}<p className="flex justify-between text-sm py-1.5"><span>Delivery (sample)</span><span>{formatPKR(shipping)}</span></p><p className="flex justify-between font-bold border-t border-neutral-200 pt-3 mt-2"><span>Total</span><span>{formatPKR(total)}</span></p><p className="text-xs text-neutral-500 mt-4 leading-relaxed">All prices are sample prices. Delivery across Pakistan usually takes a few working days; the delivery fee at checkout is a sample and will be confirmed with your order.</p></aside></form></div>
@@ -413,7 +425,7 @@ export function TrackPage() {
     <div className={CARD}><form className="flex flex-col sm:flex-row gap-2 p-4 sm:p-5" onSubmit={e => { e.preventDefault(); setSearched(true); setFound(orders.find(o => o.id === id.trim()) || null) }}><label htmlFor="track-id" className="sr-only">Order ID</label><input id="track-id" value={id} onChange={e => setId(e.target.value)} placeholder="Order ID, e.g. UT-123456" className={`${INPUT} flex-1`} /><button className={`${BTN_BLACK} px-7 py-3 text-sm shrink-0`}>Track</button></form></div>
     {found && <div className={`${CARD} p-5 sm:p-6 mt-5`}>
       <div className="flex flex-wrap justify-between gap-3 items-start"><div><p className="font-bold text-lg">{found.id}</p><p className="text-sm text-neutral-600 mt-1">{found.items.map(i => `${i.product.name} (${i.size}) × ${i.qty}`).join(', ')}</p><p className="text-sm text-neutral-500 mt-1">Payment: {found.payment} ({found.paymentStatus}) • Total {formatPKR(found.total)}</p></div><StatusPill status={found.status} /></div>
-      {(found.status === 'Cancelled') ? <p className="text-sm bg-red-50 border border-red-200 text-red-800 rounded-xl px-4 py-3 mt-5">This order is cancelled. For questions, contact the shop — no contact details are published here yet.</p> : <ol className="mt-6 space-y-0">{TRACK_STEPS.map((s, i) => <li key={s} className="flex gap-3"><span className="flex flex-col items-center"><span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${i < stepIndex ? 'bg-black text-white' : i === stepIndex ? 'bg-black text-white ring-4 ring-black/10' : 'bg-neutral-100 text-neutral-500 border border-neutral-200'}`}>{i < stepIndex || i === stepIndex ? <Check size={14} /> : i + 1}</span>{i < TRACK_STEPS.length - 1 && <span className={`w-0.5 flex-1 min-h-5 ${i < stepIndex ? 'bg-black' : 'bg-neutral-200'}`} />}</span><span className={`py-1 text-sm pb-5 ${i === stepIndex ? 'font-bold' : i < stepIndex ? 'text-neutral-700' : 'text-neutral-400'}`}>{s}{i === stepIndex ? ' — current status' : ''}</span></li>)}</ol>}
+      {(found.status === 'Cancelled') ? <p className="text-sm bg-red-50 border border-red-200 text-red-800 rounded-xl px-4 py-3 mt-5">This order is cancelled. For questions, contact the shop on WhatsApp {WHATSAPP_DISPLAY}.</p> : <ol className="mt-6 space-y-0">{TRACK_STEPS.map((s, i) => <li key={s} className="flex gap-3"><span className="flex flex-col items-center"><span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${i < stepIndex ? 'bg-black text-white' : i === stepIndex ? 'bg-black text-white ring-4 ring-black/10' : 'bg-neutral-100 text-neutral-500 border border-neutral-200'}`}>{i < stepIndex || i === stepIndex ? <Check size={14} /> : i + 1}</span>{i < TRACK_STEPS.length - 1 && <span className={`w-0.5 flex-1 min-h-5 ${i < stepIndex ? 'bg-black' : 'bg-neutral-200'}`} />}</span><span className={`py-1 text-sm pb-5 ${i === stepIndex ? 'font-bold' : i < stepIndex ? 'text-neutral-700' : 'text-neutral-400'}`}>{s}{i === stepIndex ? ' — current status' : ''}</span></li>)}</ol>}
     </div>}
     {searched && !found && <p className="text-neutral-600 bg-[#F7F7F7] border border-neutral-200 rounded-2xl px-4 py-3.5 mt-5 text-sm leading-relaxed">No order found with that ID here. Signed-in customers see their Supabase orders below; guest live orders appear here in the browser they were placed in.</p>}
     <h2 className="font-bold text-lg mt-10 mb-3">Your orders</h2>{orders.length === 0 ? <p className="text-neutral-500 text-sm">No orders in this browser yet.</p> : <div className="grid gap-3">{orders.map(o => <div key={o.id} className={`${CARD} !rounded-2xl p-4 flex flex-wrap justify-between gap-3 items-center`}><span className="text-sm"><strong>{o.id}</strong> — {formatPKR(o.total)}</span><span className="flex items-center gap-2"><StatusPill status={o.status} /><button onClick={() => { setId(o.id); setSearched(true); setFound(o) }} className={`${BTN_OUTLINE} px-4 py-2 text-xs`}>Track</button></span></div>)}</div>}
@@ -425,8 +437,8 @@ export function StaticPage({ title, body }: { title: string; body: string }) {
 }
 
 export const STATIC: Record<string, { title: string; body: string }> = {
-  about: { title: 'About Us', body: 'UK Threads is a clothing storefront for premium shirts and tees. (Brand name "UK Threads" is a placeholder and is not confirmed as the final brand name.)\n\nThe catalogue is a sample catalogue: 30 shirts and tees in sizes S to XXL, with representative photos and sample prices in PKR. The final product range, prices and policies will be confirmed by the owner.\n\nNo shop address, phone number or business email has been confirmed for this clothing store yet, so none is published here.' },
-  contact: { title: 'Contact Us', body: 'Questions about a size, an order or a product? Send a message.\n\nNo shop address, phone number or business email has been confirmed for this clothing store yet — none is published here. Social media links are placeholders until the owner provides them.' },
+  about: { title: 'About Us', body: 'UK Threads is a clothing storefront for premium shirts and tees. (Brand name "UK Threads" is a placeholder and is not confirmed as the final brand name.)\n\nThe catalogue is a sample catalogue: 30 shirts and tees in sizes S to XXL, with representative photos and sample prices in PKR. The final product range, prices and policies will be confirmed by the owner.\n\nWhatsApp: 0317 0851250. Easypaisa & JazzCash: 0317 0851250 (Umar Khayam). No shop address or business email has been confirmed yet.' },
+  contact: { title: 'Contact Us', body: 'Questions about a size, an order or a product? Send a message.\n\nWhatsApp: 0317 0851250 (https://wa.me/923170851250)\nEasypaisa & JazzCash: 0317 0851250 (Umar Khayam)\n\nNo shop address or business email has been confirmed yet. Social media links are placeholders until the owner provides them.' },
   faq: { title: 'FAQ', body: FAQS.map(f => `Q: ${f.q}\nA: ${f.a}`).join('\n\n') },
   privacy: { title: 'Privacy Policy', body: 'We collect only the information needed to process orders: name, phone, email, address and order details. In demo mode this stays in your browser. In live mode it is stored in Supabase with Row Level Security — customers can only access their own data. We do not sell personal data.' },
   terms: { title: 'Terms and Conditions', body: 'By using UK Threads you agree to these terms. Products shown are sample products until approved. Prices are in PKR and are sample prices. Orders are subject to confirmation and stock availability. The final payment options and policies will be confirmed by the owner.' },

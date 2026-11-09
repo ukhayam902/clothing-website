@@ -10,7 +10,7 @@ import { demoMode, supabase } from '../lib/supabase'
 
 const TABS = ['Overview', 'Products', 'Orders', 'Shipping', 'Settings'] as const
 const ORDER_STATUSES = ['Pending', 'Confirmed', 'Processing', 'Shipped', 'Delivered', 'Cancelled']
-const PAYMENT_STATUSES = ['Pay on delivery', 'Paid', 'Pending verification']
+const PAYMENT_STATUSES = ['Pay on delivery', 'Paid', 'Awaiting verification', 'Pending verification']
 
 export function AdminPage() {
   const {
@@ -170,7 +170,7 @@ export function AdminPage() {
         {products.map(p => <div key={p.id} className={`border rounded-xl p-3 mb-2 flex flex-wrap gap-2 justify-between items-center ${p.stock < 20 ? 'border-amber-400 bg-amber-50' : ''}`}><span>{p.name} — {p.stock} in stock {p.stock < 20 ? '• LOW STOCK' : ''} {p.stock === 0 ? '• OUT OF STOCK' : ''}</span><span className="flex gap-2"><input className="border rounded px-2 py-1 text-sm w-24" type="number" placeholder="New stock" value={stockDraft[p.id] ?? ''} onChange={e => setStockDraft({ ...stockDraft, [p.id]: e.target.value })} /><button onClick={async () => { const v = Number(stockDraft[p.id]); if (Number.isNaN(v) || v < 0) { setFormMsg('Enter a stock number of 0 or more.'); return } if (demoMode) { setProducts(products.map(x => x.id === p.id ? { ...x, stock: v } : x)); setFormMsg('Stock changed in this browser only (demo mode).') } else await run('Stock', () => updateStockLive(p.id, v)) }} className="border rounded-full px-3 py-1 text-sm">Save</button></span></div>)}
       </div>}
 
-      {tab === 'Orders' && <div className="mt-6"><h2 className="font-bold mb-3">Orders</h2>{orders.length === 0 ? <p className="text-neutral-500">No orders yet.</p> : orders.map(o => <div key={o.id} className="border rounded-xl p-4 mb-3"><p className="font-semibold">{o.id} — {o.date} — {o.name}, {o.city} — {formatPKR(o.total)}</p><p className="text-sm">{o.items.map(i => `${i.product.name} (${i.size}) × ${i.qty}`).join(', ')}</p><p className="text-sm">Payment: {o.payment} ({o.paymentStatus}) • Status: {o.status}</p>{o.phone && <p className="text-sm text-neutral-500">Phone: {o.phone}{o.address ? ` • ${o.address}` : ''}</p>}
+      {tab === 'Orders' && <div className="mt-6"><h2 className="font-bold mb-3">Orders</h2>{orders.length === 0 ? <p className="text-neutral-500">No orders yet.</p> : orders.map(o => <div key={o.id} className="border rounded-xl p-4 mb-3"><p className="font-semibold">{o.id} — {o.date} — {o.name}, {o.city} — {formatPKR(o.total)}</p><p className="text-sm">{o.items.map(i => `${i.product.name} (${i.size}) × ${i.qty}`).join(', ')}</p><p className="text-sm">Payment: {o.payment} ({o.paymentStatus}){o.txnId ? ` • Txn ID: ${o.txnId}` : ''} • Status: {o.status}</p>{o.phone && <p className="text-sm text-neutral-500">Phone: {o.phone}{o.address ? ` • ${o.address}` : ''}</p>}
         <div className="flex flex-wrap gap-4 mt-2">
           <label className="text-sm">Change status: <select value={o.status} onChange={e => { if (demoMode) { updateOrderStatus(o.id, e.target.value); setFormMsg('Order status changed in this browser only (demo mode).') } else void run('Order status', () => updateOrderStatusLive(o.id, e.target.value)) }} className="border rounded px-2 py-1">{ORDER_STATUSES.map(s => <option key={s}>{s}</option>)}</select></label>
           <label className="text-sm">Payment status: <select value={o.paymentStatus} onChange={e => { if (demoMode) { updateOrderStatus(o.id, o.status, e.target.value); setFormMsg('Payment status changed in this browser only (demo mode).') } else void run('Payment status', () => updateOrderStatusLive(o.id, o.status, e.target.value)) }} className="border rounded px-2 py-1">{PAYMENT_STATUSES.map(s => <option key={s}>{s}</option>)}</select></label>
@@ -195,7 +195,7 @@ export function AdminPage() {
         <p className="text-sm text-neutral-500 mt-2">International delivery is not enabled until courier rates are confirmed.</p></div>}
 
       {tab === 'Settings' && <div className="mt-6"><h2 className="font-bold">Store Settings</h2>
-        {demoMode ? <ul className="text-sm space-y-1 mt-2 list-disc ml-5"><li>Store name: UK Threads (placeholder brand name — not confirmed)</li><li>Slogan: Premium Shirts &amp; Tees</li><li>Currency: PKR</li><li>Cash on Delivery fee: Rs. 250 (sample)</li><li>Supabase live: NOT configured — anon key missing</li><li>No shop address, phone number or business email confirmed for this clothing store</li></ul> : <>
+        {demoMode ? <ul className="text-sm space-y-1 mt-2 list-disc ml-5"><li>Store name: UK Threads (placeholder brand name — not confirmed)</li><li>Slogan: Premium Shirts &amp; Tees</li><li>Currency: PKR</li><li>Cash on Delivery fee: Rs. 250 (sample)</li><li>Supabase live: NOT configured — anon key missing</li><li>WhatsApp / Easypaisa / JazzCash: 0317 0851250 (Umar Khayam)</li><li>No shop address or business email confirmed for this clothing store</li></ul> : <>
           <div className="grid sm:grid-cols-2 gap-3 mt-3">
             <input className={inputCls} placeholder="Store name" value={settingsForm.storeName} onChange={e => setSettingsForm({ ...settingsForm, storeName: e.target.value })} />
             <input className={inputCls} placeholder="Slogan" value={settingsForm.slogan} onChange={e => setSettingsForm({ ...settingsForm, slogan: e.target.value })} />

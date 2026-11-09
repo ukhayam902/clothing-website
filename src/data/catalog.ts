@@ -11,10 +11,19 @@ export const SIZES = ['S', 'M', 'L', 'XL', 'XXL'] as const
 export const SHIPPING_FEE_SAMPLE = 250
 export const formatPKR = (n: number) => `Rs. ${n.toLocaleString('en-PK')}`
 
+// Contact & payment details confirmed by the owner 2026-11-09 for this
+// clothing store: WhatsApp, Easypaisa and JazzCash all on the same number.
+export const WHATSAPP_NUMBER = '03170851250'
+export const WHATSAPP_DISPLAY = '0317 0851250'
+export const WHATSAPP_URL = 'https://wa.me/923170851250'
+export const PAYMENT_ACCOUNT_TITLE = 'Umar Khayam'
+export const PAYMENT_METHODS = ['Cash on Delivery', 'Easypaisa', 'JazzCash'] as const
+export type PaymentMethod = (typeof PAYMENT_METHODS)[number]
+
 // SAMPLE CATALOGUE — brand name 'UK Threads' is a placeholder, not confirmed;
 // every photo is a representative sample photo and every price is a sample price
-// in PKR, to be confirmed by the owner. No contact details have been confirmed
-// for this clothing store, so none are published here.
+// in PKR, to be confirmed by the owner. WhatsApp and Easypaisa/JazzCash
+// payment details above are the only confirmed contact details.
 export const CATEGORIES: Category[] = [
   { id: 'shirts', name: 'Shirts', slug: 'shirts', description: 'Classic and casual shirts in soft cotton.', image: '/images/category-shirts.webp' },
   { id: 'tees', name: 'T-Shirts', slug: 't-shirts', description: 'Everyday crew tees, stripes and graphic tees.', image: '/images/category-tees.jpeg' },
@@ -69,8 +78,8 @@ export const productBySlug = (slug: string) => PRODUCTS.find(x => x.slug === slu
 // The site's exact 6 FAQs, copied from the static storefront (sample policies).
 export const FAQS: { q: string; a: string }[] = [
   { q: "How do I find my size?", a: "Sample size guide: our shirts and tees are listed in sizes S to XXL. As a guide, S fits a 38-inch chest, M a 40-inch, L a 42-inch, XL a 44-inch and XXL a 46-inch chest. If you are between sizes or like a relaxed fit, we recommend going one size up. The owner will confirm the final size guide with the real range." },
-  { q: "How do I place an order?", a: "Pick a product, choose your size, and tap Add to Cart — or Buy Now to go straight to checkout. Fill in your name, phone number and address, confirm with Cash on Delivery, and your order is placed." },
-  { q: "How do I pay?", a: "The sample checkout offers Cash on Delivery — you pay in cash when your order arrives at your door, so there is no need to pay anything in advance. The final payment options will be confirmed by the owner." },
+  { q: "How do I place an order?", a: "Pick a product, choose your size, and tap Add to Cart — or Buy Now to go straight to checkout. Fill in your name, phone number and address, choose your payment method — Cash on Delivery, Easypaisa or JazzCash — and your order is placed." },
+  { q: "How do I pay?", a: "Three ways: Cash on Delivery — pay in cash when your order arrives at your door, no advance payment needed; Easypaisa or JazzCash — pay in advance to 03170851250 (Umar Khayam), enter your transaction ID at checkout and share the screenshot on WhatsApp 0317 0851250 for verification." },
   { q: "How long does delivery take?", a: "Orders are confirmed on your phone number first, then dispatched. Delivery across Pakistan usually takes a few working days; the delivery fee at checkout is a sample and will be confirmed with your order." },
   { q: "Can I exchange a size?", a: "Under the sample exchange policy, if the size is not right you can contact us with your order number to arrange a size exchange for an unworn item with its tags on. The owner will confirm the final exchange policy." },
   { q: "Are these the final products and prices?", a: "This page is a sample catalogue: the photos are representative sample photos and the prices are sample prices. The owner will confirm the final product range and prices — everything marked as a sample will be updated then." },

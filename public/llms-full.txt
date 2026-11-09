@@ -7,7 +7,7 @@
 - Site: https://clothing-website-kohl.vercel.app/
 - What it sells: shirts, tees, polo shirts and one oversized tee — 30 sample products (13 shirts, 13 tees, 3 polos, 1 oversized tee).
 - Sizes: S to XXL.
-- Checkout: Cash on Delivery (sample policy). Delivery across Pakistan in a few working days; the Rs. 250 delivery fee at checkout is a sample.
+- Checkout: Cash on Delivery, Easypaisa & JazzCash. Payment details: Easypaisa/JazzCash 03170851250 (Umar Khayam); WhatsApp 0317 0851250. Delivery across Pakistan in a few working days; the Rs. 250 delivery fee at checkout is a sample.
 - Admin: /admin (Supabase Auth + user_roles admin gate). Login: /login.
 - No confirmed brand name, contact details, address, phone number or email for this clothing store yet.
 
@@ -59,11 +59,11 @@ Sample size guide: our shirts and tees are listed in sizes S to XXL. As a guide,
 
 ### How do I place an order?
 
-Pick a product, choose your size, and tap Add to Cart — or Buy Now to go straight to checkout. Fill in your name, phone number and address, confirm with Cash on Delivery, and your order is placed.
+Pick a product, choose your size, and tap Add to Cart — or Buy Now to go straight to checkout. Fill in your name, phone number and address, choose your payment method — Cash on Delivery, Easypaisa or JazzCash — and your order is placed.
 
 ### How do I pay?
 
-The sample checkout offers Cash on Delivery — you pay in cash when your order arrives at your door, so there is no need to pay anything in advance. The final payment options will be confirmed by the owner.
+Three ways: Cash on Delivery — pay in cash when your order arrives at your door, no advance payment needed; Easypaisa or JazzCash — pay in advance to 03170851250 (Umar Khayam), enter your transaction ID at checkout and share the screenshot on WhatsApp 0317 0851250 for verification.
 
 ### How long does delivery take?
 

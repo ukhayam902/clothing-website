@@ -13,14 +13,14 @@ import { demoMode, supabase } from '../lib/supabase'
 export type CartItem = { product: Product; qty: number; size: string }
 export type Order = {
   id: string; date: string; items: CartItem[]; total: number; status: string;
-  payment: string; paymentStatus: string; name: string; city: string;
+  payment: string; paymentStatus: string; txnId?: string; name: string; city: string;
   phone?: string; address?: string;
 }
 export type User = { id?: string; email: string; name: string; isAdmin: boolean } | null
 export type AuthResult = { error?: string; user?: NonNullable<User>; needsConfirmation?: boolean }
 export type LiveShipping = { id: string; name: string; price: number; freeOver?: number | null; zone: string; estimateDays?: string | null; active: boolean }
 export type StoreSettings = { storeName: string; slogan: string; currency: string; announcement?: string | null; codFee: number }
-export type CheckoutInput = { name: string; city: string; phone: string; email: string; country: string; address: string; postalCode?: string; notes?: string }
+export type CheckoutInput = { name: string; city: string; phone: string; email: string; country: string; address: string; postalCode?: string; notes?: string; payment?: string; txnId?: string }
 
 type Shop = {
   cart: CartItem[]; orders: Order[]; user: User;
@@ -182,8 +182,9 @@ export function ShopProvider({ children }: { children: ReactNode }) {
         }),
         total: Number(row.total ?? 0),
         status: String(row.status ?? 'Pending'),
-        payment: 'Cash on Delivery',
+        payment: String(row.payment_method ?? 'Cash on Delivery'),
         paymentStatus: String(row.payment_status ?? 'Pay on delivery'),
+        txnId: row.txn_id ? String(row.txn_id) : undefined,
         name: String(row.customer_name ?? ''),
         city: String(row.city ?? ''),
         phone: String(row.phone ?? ''),
@@ -319,7 +320,8 @@ export function ShopProvider({ children }: { children: ReactNode }) {
       return {}
     },
     placeOrder: (o) => {
-      const order: Order = { ...o, id: `UT-${Date.now().toString().slice(-6)}`, date: new Date().toISOString().slice(0, 10), status: 'Pending', payment: 'Cash on Delivery', paymentStatus: 'Pay on delivery' }
+      const method = o.payment || 'Cash on Delivery'
+      const order: Order = { ...o, id: `UT-${Date.now().toString().slice(-6)}`, date: new Date().toISOString().slice(0, 10), status: 'Pending', payment: method, paymentStatus: method === 'Cash on Delivery' ? 'Pay on delivery' : 'Awaiting verification' }
       setOrders(prev => [order, ...prev]); setCart([])
       if (demoMode) setProductsState(prev => prev.map(pr => { const item = o.items.find(i => i.product.id === pr.id); return item ? { ...pr, stock: Math.max(0, pr.stock - item.qty) } : pr }))
       return order
@@ -342,16 +344,20 @@ export function ShopProvider({ children }: { children: ReactNode }) {
           p_customer_name: input.name, p_phone: input.phone, p_email: input.email,
           p_city: input.city, p_address: input.address, p_postal_code: input.postalCode ?? '',
           p_country: input.country, p_items: itemsJson, p_notes: input.notes ?? '',
+          p_payment_method: input.payment ?? 'Cash on Delivery',
+          p_txn_id: input.txnId ? input.txnId : null,
         })
         if (error || !data) return { error: error?.message || 'Order could not be created. Your cart was kept.' }
         const orderId = String(data)
         const subtotal = cart.reduce((s, i) => s + i.product.price * i.qty, 0)
         const method = shippingMethods.find(m => m.active)
         const shipping = subtotal <= 0 ? 0 : (method ? (method.freeOver != null && subtotal >= method.freeOver ? 0 : method.price) : (subtotal >= 5000 ? 0 : 250))
+        const payMethod = input.payment ?? 'Cash on Delivery'
         const order: Order = {
           id: orderId, date: new Date().toISOString().slice(0, 10), items: cart,
           total: subtotal + shipping, status: 'Pending',
-          payment: 'Cash on Delivery', paymentStatus: 'Pay on delivery',
+          payment: payMethod, paymentStatus: payMethod === 'Cash on Delivery' ? 'Pay on delivery' : 'Awaiting verification',
+          txnId: input.txnId ? input.txnId : undefined,
           name: input.name, city: input.city, phone: input.phone, address: input.address,
         }
         setOrders(prev => [order, ...prev.filter(o => o.id !== orderId)])
