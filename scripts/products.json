@@ -1,0 +1,496 @@
+{
+  "hero": {
+    "main": {
+      "file": "hero-main.webp",
+      "bytes": 169320,
+      "alt": "Store owner modelling a black casual shirt over a white tee"
+    },
+    "hero-black-shirt": {
+      "file": "hero-black-shirt.webp",
+      "bytes": 169320,
+      "alt": "Black shirt look"
+    },
+    "hero-white-tee": {
+      "file": "hero-white-tee.webp",
+      "bytes": 205838,
+      "alt": "White tee look"
+    },
+    "hero-green-polo": {
+      "file": "hero-green-polo.webp",
+      "bytes": 360988,
+      "alt": "Green polo look"
+    },
+    "hero-beige-shirt": {
+      "file": "hero-beige-shirt.webp",
+      "bytes": 209472,
+      "alt": "Beige shirt look"
+    },
+    "style-split": {
+      "file": "style-split.webp",
+      "bytes": 209472,
+      "alt": "Store owner wearing a sand beige linen shirt with white trousers"
+    }
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Classic Black Casual Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 1799,
+      "was": 2299,
+      "bestseller": true,
+      "image": "/images/product-01.webp",
+      "imageBytes": 169320,
+      "fabric": "Cotton twill",
+      "description": "The shirt that started it all — a clean black button-down with a modern slim fit. Wear it open over a tee or buttoned up for a sharper look."
+    },
+    {
+      "id": 2,
+      "name": "Sand Beige Linen Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 2199,
+      "was": 2699,
+      "bestseller": true,
+      "image": "/images/product-02.webp",
+      "imageBytes": 209472,
+      "fabric": "Linen blend",
+      "description": "A light, breathable short-sleeve linen shirt in a warm sand tone. Relaxed, easy and perfect for warm days."
+    },
+    {
+      "id": 3,
+      "name": "White Oxford Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 1999,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-03.jpeg",
+      "imageBytes": 34491,
+      "fabric": "Oxford cotton",
+      "description": "A crisp white Oxford with a button-down collar — the most versatile shirt you can own, from office to evenings out."
+    },
+    {
+      "id": 4,
+      "name": "Sky Blue Oxford Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 1899,
+      "was": 2299,
+      "bestseller": false,
+      "image": "/images/product-04.jpeg",
+      "imageBytes": 66227,
+      "fabric": "Oxford cotton",
+      "description": "Fresh sky blue Oxford cotton with a smooth finish. Smart with trousers, easy with jeans."
+    },
+    {
+      "id": 5,
+      "name": "Olive Casual Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 1849,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-05.jpeg",
+      "imageBytes": 31834,
+      "fabric": "Cotton poplin",
+      "description": "An easy olive shirt with roll-up sleeves and a soft hand feel. A quiet colour that pairs with everything."
+    },
+    {
+      "id": 6,
+      "name": "Indigo Denim Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 2399,
+      "was": 2899,
+      "bestseller": true,
+      "image": "/images/product-06.jpeg",
+      "imageBytes": 32666,
+      "fabric": "Denim cotton",
+      "description": "A sturdy mid-wash denim shirt with snap-style buttons and chest pockets. Gets better with every wear."
+    },
+    {
+      "id": 7,
+      "name": "Red Check Flannel Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 2099,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-07.jpeg",
+      "imageBytes": 93423,
+      "fabric": "Brushed flannel",
+      "description": "Bold red-and-black checks in soft brushed flannel. Warm, rugged and made for cooler evenings."
+    },
+    {
+      "id": 8,
+      "name": "Navy Formal Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 2299,
+      "was": 2799,
+      "bestseller": false,
+      "image": "/images/product-08.jpeg",
+      "imageBytes": 67303,
+      "fabric": "Cotton sateen",
+      "description": "A deep navy formal shirt with a smooth sateen finish and a tailored cut. Boardroom-ready."
+    },
+    {
+      "id": 9,
+      "name": "Mono Stripe Resort Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 1999,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-09.jpeg",
+      "imageBytes": 124991,
+      "fabric": "Viscose blend",
+      "description": "Black-and-white vertical stripes on a relaxed resort collar. A statement shirt for days out."
+    },
+    {
+      "id": 10,
+      "name": "Charcoal Dress Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 1899,
+      "was": 2249,
+      "bestseller": false,
+      "image": "/images/product-10.jpeg",
+      "imageBytes": 67519,
+      "fabric": "Cotton blend",
+      "description": "A smooth charcoal shirt that sits between casual and formal — clean lines, no fuss."
+    },
+    {
+      "id": 11,
+      "name": "Maroon Casual Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 1799,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-11.jpeg",
+      "imageBytes": 55460,
+      "fabric": "Cotton poplin",
+      "description": "Rich maroon tones in a breathable everyday shirt. Roll the sleeves and go."
+    },
+    {
+      "id": 12,
+      "name": "Khaki Utility Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 2049,
+      "was": 2499,
+      "bestseller": false,
+      "image": "/images/product-12.jpeg",
+      "imageBytes": 95174,
+      "fabric": "Cotton twill",
+      "description": "A khaki utility shirt with twin chest pockets and shoulder detailing. Practical, sharp, dependable."
+    },
+    {
+      "id": 13,
+      "name": "Essential White Crew Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1299,
+      "was": 1599,
+      "bestseller": true,
+      "image": "/images/product-13.webp",
+      "imageBytes": 205838,
+      "fabric": "Combed cotton",
+      "description": "The perfect white tee — soft combed cotton, a clean crew neck and a fit that sits just right. A true everyday essential."
+    },
+    {
+      "id": 14,
+      "name": "Jet Black Crew Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1199,
+      "was": null,
+      "bestseller": true,
+      "image": "/images/product-14.jpeg",
+      "imageBytes": 97660,
+      "fabric": "Combed cotton",
+      "description": "A deep black crew-neck tee in soft cotton. The one you will reach for every single day."
+    },
+    {
+      "id": 15,
+      "name": "Olive Everyday Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1249,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-15.webp",
+      "imageBytes": 137428,
+      "fabric": "Cotton jersey",
+      "description": "A muted olive tee in smooth cotton jersey. Easy colour, easy fit, endless pairings."
+    },
+    {
+      "id": 16,
+      "name": "Slate Grey Crew Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1349,
+      "was": 1649,
+      "bestseller": false,
+      "image": "/images/product-16.webp",
+      "imageBytes": 343862,
+      "fabric": "Melange cotton",
+      "description": "A dark slate crew tee with a soft melange texture. Understated and endlessly wearable."
+    },
+    {
+      "id": 17,
+      "name": "Navy Blue Crew Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1199,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-17.webp",
+      "imageBytes": 129274,
+      "fabric": "Cotton jersey",
+      "description": "Classic navy in a breathable jersey knit. Clean, simple and always in style."
+    },
+    {
+      "id": 18,
+      "name": "Maroon Crew Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1249,
+      "was": 1499,
+      "bestseller": false,
+      "image": "/images/product-18.webp",
+      "imageBytes": 102526,
+      "fabric": "Cotton jersey",
+      "description": "A rich maroon tee that adds colour without shouting. Soft feel, regular fit."
+    },
+    {
+      "id": 19,
+      "name": "Navy Stripe Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1499,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-19.jpeg",
+      "imageBytes": 98904,
+      "fabric": "Cotton jersey",
+      "description": "Fine white stripes on deep navy. A nautical classic with a modern, relaxed cut."
+    },
+    {
+      "id": 20,
+      "name": "Surfer Graphic Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1599,
+      "was": 1899,
+      "bestseller": true,
+      "image": "/images/product-20.jpeg",
+      "imageBytes": 63735,
+      "fabric": "Cotton jersey",
+      "description": "A white tee with a laid-back surf graphic print. Weekend energy, everyday comfort."
+    },
+    {
+      "id": 21,
+      "name": "Mustard Yellow Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1299,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-21.jpeg",
+      "imageBytes": 65724,
+      "fabric": "Cotton jersey",
+      "description": "A warm mustard tee that brightens any outfit. Soft, breathable and easy to style."
+    },
+    {
+      "id": 22,
+      "name": "Charcoal V-Neck Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1399,
+      "was": 1699,
+      "bestseller": false,
+      "image": "/images/product-22.jpeg",
+      "imageBytes": 20362,
+      "fabric": "Cotton jersey",
+      "description": "A clean charcoal V-neck with a sharp, modern neckline. Minimal and versatile."
+    },
+    {
+      "id": 23,
+      "name": "Cream Everyday Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1449,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-23.jpeg",
+      "imageBytes": 47785,
+      "fabric": "Cotton jersey",
+      "description": "A soft cream tee with a slightly relaxed fit. Warmer than white, easier than colour."
+    },
+    {
+      "id": 24,
+      "name": "Blue Tie-Dye Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1699,
+      "was": 1999,
+      "bestseller": false,
+      "image": "/images/product-24.jpeg",
+      "imageBytes": 121146,
+      "fabric": "Cotton jersey",
+      "description": "A blue tie-dye wash — no two pieces exactly alike. Stand out without trying."
+    },
+    {
+      "id": 25,
+      "name": "Forest Green Polo",
+      "category": "polos",
+      "categoryLabel": "Polo Shirts",
+      "price": 1899,
+      "was": 2299,
+      "bestseller": true,
+      "image": "/images/product-25.webp",
+      "imageBytes": 360988,
+      "fabric": "Pique cotton",
+      "description": "A rich forest green polo in breathable pique cotton with a smart two-button placket. Smart-casual done right."
+    },
+    {
+      "id": 26,
+      "name": "Jet Black Polo",
+      "category": "polos",
+      "categoryLabel": "Polo Shirts",
+      "price": 1849,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-26.jpeg",
+      "imageBytes": 33014,
+      "fabric": "Pique cotton",
+      "description": "A sleek black polo that works everywhere — with chinos, jeans or shorts."
+    },
+    {
+      "id": 27,
+      "name": "Classic White Polo",
+      "category": "polos",
+      "categoryLabel": "Polo Shirts",
+      "price": 1799,
+      "was": 2149,
+      "bestseller": false,
+      "image": "/images/product-27.jpeg",
+      "imageBytes": 25339,
+      "fabric": "Pique cotton",
+      "description": "A crisp white polo with a structured collar. Clean, fresh and endlessly pairable."
+    },
+    {
+      "id": 28,
+      "name": "Rose Pink Oxford Shirt",
+      "category": "shirts",
+      "categoryLabel": "Shirts",
+      "price": 1949,
+      "was": 2349,
+      "bestseller": true,
+      "image": "/images/product-28.jpeg",
+      "imageBytes": 72914,
+      "fabric": "Oxford cotton",
+      "description": "A soft rose pink Oxford with a button-down collar. A fresh, confident colour that lifts any outfit."
+    },
+    {
+      "id": 29,
+      "name": "Heather Grey Henley Tee",
+      "category": "tees",
+      "categoryLabel": "T-Shirts",
+      "price": 1499,
+      "was": null,
+      "bestseller": false,
+      "image": "/images/product-29.jpeg",
+      "imageBytes": 135810,
+      "fabric": "Cotton jersey",
+      "description": "A heather grey Henley with a three-button placket. A step up from a basic tee, just as easy to wear."
+    },
+    {
+      "id": 30,
+      "name": "Oversized Sand Tee",
+      "category": "oversized",
+      "categoryLabel": "Oversized",
+      "price": 1699,
+      "was": 1999,
+      "bestseller": true,
+      "image": "/images/product-30.jpeg",
+      "imageBytes": 49893,
+      "fabric": "Heavyweight cotton",
+      "description": "A drop-shoulder oversized tee in a warm sand tone. Heavyweight cotton with a relaxed street fit."
+    }
+  ],
+  "categories": [
+    {
+      "id": "shirts",
+      "name": "Shirts",
+      "sub": "13 styles",
+      "image": "/images/category-shirts.webp",
+      "imageBytes": 209472
+    },
+    {
+      "id": "tees",
+      "name": "T-Shirts",
+      "sub": "13 styles",
+      "image": "/images/category-tees.jpeg",
+      "imageBytes": 97660
+    },
+    {
+      "id": "polos",
+      "name": "Polo Shirts",
+      "sub": "3 styles",
+      "image": "/images/category-polos.webp",
+      "imageBytes": 360988
+    },
+    {
+      "id": "oversized",
+      "name": "Oversized",
+      "sub": "1 style",
+      "image": "/images/category-oversized.jpeg",
+      "imageBytes": 49893
+    },
+    {
+      "id": "best",
+      "name": "Best Sellers",
+      "sub": "Top picks",
+      "image": "/images/category-best.webp",
+      "imageBytes": 169320
+    },
+    {
+      "id": "all",
+      "name": "Shop All",
+      "sub": "30 designs",
+      "image": "/images/category-all.webp",
+      "imageBytes": 205838
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How do I find my size?",
+      "a": "Sample size guide: our shirts and tees are listed in sizes S to XXL. As a guide, S fits a 38-inch chest, M a 40-inch, L a 42-inch, XL a 44-inch and XXL a 46-inch chest. If you are between sizes or like a relaxed fit, we recommend going one size up. The owner will confirm the final size guide with the real range."
+    },
+    {
+      "q": "How do I place an order?",
+      "a": "Pick a product, choose your size, and tap Add to Cart — or Buy Now to go straight to checkout. Fill in your name, phone number and address, confirm with Cash on Delivery, and your order is placed."
+    },
+    {
+      "q": "How do I pay?",
+      "a": "The sample checkout offers Cash on Delivery — you pay in cash when your order arrives at your door, so there is no need to pay anything in advance. The final payment options will be confirmed by the owner."
+    },
+    {
+      "q": "How long does delivery take?",
+      "a": "Orders are confirmed on your phone number first, then dispatched. Delivery across Pakistan usually takes a few working days; the delivery fee at checkout is a sample and will be confirmed with your order."
+    },
+    {
+      "q": "Can I exchange a size?",
+      "a": "Under the sample exchange policy, if the size is not right you can contact us with your order number to arrange a size exchange for an unworn item with its tags on. The owner will confirm the final exchange policy."
+    },
+    {
+      "q": "Are these the final products and prices?",
+      "a": "This page is a sample catalogue: the photos are representative sample photos and the prices are sample prices. The owner will confirm the final product range and prices — everything marked as a sample will be updated then."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+# UK Threads — Premium Shirts & Tees
+
+> Sample catalogue. The brand name 'UK Threads' is a placeholder and is not confirmed by the owner. All product photos are representative sample photos, all prices are sample prices in PKR, and the payment, delivery and exchange policies are sample text to be confirmed by the owner. Do not present any of these as confirmed facts.
+
+## Store
+
+- Site: https://clothing-website-kohl.vercel.app/
+- What it sells: shirts, tees, polo shirts and one oversized tee — 30 sample products (13 shirts, 13 tees, 3 polos, 1 oversized tee).
+- Sizes: S to XXL.
+- Checkout: Cash on Delivery (sample policy). Delivery across Pakistan in a few working days; the Rs. 250 delivery fee at checkout is a sample.
+- Admin: /admin (Supabase Auth + user_roles admin gate). Login: /login.
+- No confirmed brand name, contact details, address, phone number or email for this clothing store yet.
+
+## Sample products
+
+- Classic Black Casual Shirt (Shirts) — Rs. 1,799 sample price — https://clothing-website-kohl.vercel.app/product/classic-black-casual-shirt
+- Sand Beige Linen Shirt (Shirts) — Rs. 2,199 sample price — https://clothing-website-kohl.vercel.app/product/sand-beige-linen-shirt
+- White Oxford Shirt (Shirts) — Rs. 1,999 sample price — https://clothing-website-kohl.vercel.app/product/white-oxford-shirt
+- Sky Blue Oxford Shirt (Shirts) — Rs. 1,899 sample price — https://clothing-website-kohl.vercel.app/product/sky-blue-oxford-shirt
+- Olive Casual Shirt (Shirts) — Rs. 1,849 sample price — https://clothing-website-kohl.vercel.app/product/olive-casual-shirt
+- Indigo Denim Shirt (Shirts) — Rs. 2,399 sample price — https://clothing-website-kohl.vercel.app/product/indigo-denim-shirt
+- Red Check Flannel Shirt (Shirts) — Rs. 2,099 sample price — https://clothing-website-kohl.vercel.app/product/red-check-flannel-shirt
+- Navy Formal Shirt (Shirts) — Rs. 2,299 sample price — https://clothing-website-kohl.vercel.app/product/navy-formal-shirt
+- Mono Stripe Resort Shirt (Shirts) — Rs. 1,999 sample price — https://clothing-website-kohl.vercel.app/product/mono-stripe-resort-shirt
+- Charcoal Dress Shirt (Shirts) — Rs. 1,899 sample price — https://clothing-website-kohl.vercel.app/product/charcoal-dress-shirt
+- Maroon Casual Shirt (Shirts) — Rs. 1,799 sample price — https://clothing-website-kohl.vercel.app/product/maroon-casual-shirt
+- Khaki Utility Shirt (Shirts) — Rs. 2,049 sample price — https://clothing-website-kohl.vercel.app/product/khaki-utility-shirt
+- Essential White Crew Tee (T-Shirts) — Rs. 1,299 sample price — https://clothing-website-kohl.vercel.app/product/essential-white-crew-tee
+- Jet Black Crew Tee (T-Shirts) — Rs. 1,199 sample price — https://clothing-website-kohl.vercel.app/product/jet-black-crew-tee
+- Olive Everyday Tee (T-Shirts) — Rs. 1,249 sample price — https://clothing-website-kohl.vercel.app/product/olive-everyday-tee
+- Slate Grey Crew Tee (T-Shirts) — Rs. 1,349 sample price — https://clothing-website-kohl.vercel.app/product/slate-grey-crew-tee
+- Navy Blue Crew Tee (T-Shirts) — Rs. 1,199 sample price — https://clothing-website-kohl.vercel.app/product/navy-blue-crew-tee
+- Maroon Crew Tee (T-Shirts) — Rs. 1,249 sample price — https://clothing-website-kohl.vercel.app/product/maroon-crew-tee
+- Navy Stripe Tee (T-Shirts) — Rs. 1,499 sample price — https://clothing-website-kohl.vercel.app/product/navy-stripe-tee
+- Surfer Graphic Tee (T-Shirts) — Rs. 1,599 sample price — https://clothing-website-kohl.vercel.app/product/surfer-graphic-tee
+- Mustard Yellow Tee (T-Shirts) — Rs. 1,299 sample price — https://clothing-website-kohl.vercel.app/product/mustard-yellow-tee
+- Charcoal V-Neck Tee (T-Shirts) — Rs. 1,399 sample price — https://clothing-website-kohl.vercel.app/product/charcoal-v-neck-tee
+- Cream Everyday Tee (T-Shirts) — Rs. 1,449 sample price — https://clothing-website-kohl.vercel.app/product/cream-everyday-tee
+- Blue Tie-Dye Tee (T-Shirts) — Rs. 1,699 sample price — https://clothing-website-kohl.vercel.app/product/blue-tie-dye-tee
+- Forest Green Polo (Polo Shirts) — Rs. 1,899 sample price — https://clothing-website-kohl.vercel.app/product/forest-green-polo
+- Jet Black Polo (Polo Shirts) — Rs. 1,849 sample price — https://clothing-website-kohl.vercel.app/product/jet-black-polo
+- Classic White Polo (Polo Shirts) — Rs. 1,799 sample price — https://clothing-website-kohl.vercel.app/product/classic-white-polo
+- Rose Pink Oxford Shirt (Shirts) — Rs. 1,949 sample price — https://clothing-website-kohl.vercel.app/product/rose-pink-oxford-shirt
+- Heather Grey Henley Tee (T-Shirts) — Rs. 1,499 sample price — https://clothing-website-kohl.vercel.app/product/heather-grey-henley-tee
+- Oversized Sand Tee (Oversized) — Rs. 1,699 sample price — https://clothing-website-kohl.vercel.app/product/oversized-sand-tee
+
+## Pages
+
+- Homepage: https://clothing-website-kohl.vercel.app/
+- Shop: https://clothing-website-kohl.vercel.app/shop
+- Sitemap: https://clothing-website-kohl.vercel.app/sitemap.xml
+- Full details: https://clothing-website-kohl.vercel.app/llms-full.txt

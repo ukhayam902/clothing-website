@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clothing-website-kohl.vercel.app/sitemap.xml

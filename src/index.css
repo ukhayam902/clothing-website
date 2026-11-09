@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #080808;
+  --color-coal: #171717;
+  --color-mist: #f7f7f7;
+  --color-silver: #c0c0c0;
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { background: #ffffff; color: #111111; font-family: "Archivo", ui-sans-system, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+::selection { background: #080808; color: #ffffff; }
+/* Visible, consistent keyboard focus — required for accessibility. */
+:focus-visible { outline: 2px solid #080808; outline-offset: 3px; }
+input[type='range'] { accent-color: #080808; }
+input[type='radio'], input[type='checkbox'] { accent-color: #080808; }
+/* Horizontal scroll rows (admin tabs) without a visible scrollbar. */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+@keyframes toast-in { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
+.toast-in { animation: toast-in 0.25s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Homepage scroll reveals: fade + rise, applied by the Reveal wrapper in pages.tsx. */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal-visible { opacity: 1; transform: none; }
+/* Hero 3D showcase: gentle float for layered floating cards (outer wrapper only, so translateZ depth is preserved on the inner card). */
+@keyframes hero-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.hero-float { animation: hero-float 6s ease-in-out infinite; }
+.hero-float-slow { animation: hero-float 8s ease-in-out infinite; }
+@keyframes hero-scroll-cue { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+.hero-scroll-cue { animation: hero-scroll-cue 2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
