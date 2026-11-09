@@ -10,3 +10,10 @@ A clean white/black clothing e-commerce storefront for shirts and tees.
 ## Run
 
 Open `index.html` — it is a single self-contained static page (all assets inlined).
+
+## SEO
+
+- Canonical + Open Graph/Twitter meta and JSON-LD (WebSite, Organization, FAQPage) in `index.html`.
+- `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt` at the site root.
+- Google Search Console verification file `google38067bd907e81902.html` at the site root.
+- Brand name 'UK Threads' is a placeholder (not confirmed); all photos are representative and all prices are samples.

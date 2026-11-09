@@ -1,0 +1,50 @@
+# UK Threads — Premium Shirts & Tees
+
+> Sample catalogue. The brand name 'UK Threads' is a placeholder and is not confirmed by the owner. All product photos are representative sample photos, all prices are sample prices in PKR, and the payment, delivery and exchange policies are sample text to be confirmed by the owner. Do not present any of these as confirmed facts.
+
+## Store
+
+- Site: https://clothing-website-kohl.vercel.app/
+- What it sells: shirts, tees, polo shirts and one oversized tee — 30 sample products (13 shirts, 13 tees, 3 polos, 1 oversized tee).
+- Sizes: S to XXL.
+- Checkout: Cash on Delivery (sample policy). Delivery across Pakistan in a few working days; the Rs. 250 delivery fee at checkout is a sample.
+- No confirmed brand name, contact details, address, phone number or email for this clothing store yet.
+
+## Sample products
+
+- Classic Black Casual Shirt (Shirts) — Rs. 1,799 sample price
+- Sand Beige Linen Shirt (Shirts) — Rs. 2,199 sample price
+- White Oxford Shirt (Shirts) — Rs. 1,999 sample price
+- Sky Blue Oxford Shirt (Shirts) — Rs. 1,899 sample price
+- Olive Casual Shirt (Shirts) — Rs. 1,849 sample price
+- Indigo Denim Shirt (Shirts) — Rs. 2,399 sample price
+- Red Check Flannel Shirt (Shirts) — Rs. 2,099 sample price
+- Navy Formal Shirt (Shirts) — Rs. 2,299 sample price
+- Mono Stripe Resort Shirt (Shirts) — Rs. 1,999 sample price
+- Charcoal Dress Shirt (Shirts) — Rs. 1,899 sample price
+- Maroon Casual Shirt (Shirts) — Rs. 1,799 sample price
+- Khaki Utility Shirt (Shirts) — Rs. 2,049 sample price
+- Essential White Crew Tee (T-Shirts) — Rs. 1,299 sample price
+- Jet Black Crew Tee (T-Shirts) — Rs. 1,199 sample price
+- Olive Everyday Tee (T-Shirts) — Rs. 1,249 sample price
+- Slate Grey Crew Tee (T-Shirts) — Rs. 1,349 sample price
+- Navy Blue Crew Tee (T-Shirts) — Rs. 1,199 sample price
+- Maroon Crew Tee (T-Shirts) — Rs. 1,249 sample price
+- Navy Stripe Tee (T-Shirts) — Rs. 1,499 sample price
+- Surfer Graphic Tee (T-Shirts) — Rs. 1,599 sample price
+- Mustard Yellow Tee (T-Shirts) — Rs. 1,299 sample price
+- Charcoal V-Neck Tee (T-Shirts) — Rs. 1,399 sample price
+- Cream Everyday Tee (T-Shirts) — Rs. 1,449 sample price
+- Blue Tie-Dye Tee (T-Shirts) — Rs. 1,699 sample price
+- Forest Green Polo (Polo Shirts) — Rs. 1,899 sample price
+- Jet Black Polo (Polo Shirts) — Rs. 1,849 sample price
+- Classic White Polo (Polo Shirts) — Rs. 1,799 sample price
+- Rose Pink Oxford Shirt (Shirts) — Rs. 1,949 sample price
+- Heather Grey Henley Tee (T-Shirts) — Rs. 1,499 sample price
+- Oversized Sand Tee (Oversized) — Rs. 1,699 sample price
+
+## Pages
+
+- Homepage: https://clothing-website-kohl.vercel.app/
+- Sitemap: https://clothing-website-kohl.vercel.app/sitemap.xml
+- Full details: https://clothing-website-kohl.vercel.app/llms-full.txt
